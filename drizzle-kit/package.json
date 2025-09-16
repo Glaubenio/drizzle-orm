@@ -1,6 +1,6 @@
 {
 	"name": "drizzle-kit",
-	"version": "0.31.4",
+	"version": "0.31.5",
 	"homepage": "https://orm.drizzle.team",
 	"keywords": [
 		"drizzle",
@@ -28,6 +28,9 @@
 	"bin": {
 		"drizzle-kit": "./bin.cjs"
 	},
+	"publishConfig": {
+		"provenance": true
+	},
 	"scripts": {
 		"api": "tsx ./dev/api.ts",
 		"migrate:old": "drizzle-kit generate:mysql",
@@ -36,7 +39,8 @@
 		"build": "rm -rf ./dist && tsx build.ts && cp package.json dist/ && attw --pack dist",
 		"build:dev": "rm -rf ./dist && tsx build.dev.ts && tsc -p tsconfig.cli-types.json && chmod +x ./dist/index.cjs",
 		"pack": "cp package.json README.md dist/ && (cd dist && npm pack --pack-destination ..) && rm -f package.tgz && mv *.tgz package.tgz",
-		"tsc": "tsc -p tsconfig.build.json --noEmit"
+		"tsc": "tsc -p tsconfig.build.json --noEmit",
+		"publish": "npm publish package.tgz"
 	},
 	"dependencies": {
 		"@drizzle-team/brocli": "^0.10.2",
