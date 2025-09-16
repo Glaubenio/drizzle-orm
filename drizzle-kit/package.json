@@ -19,9 +19,6 @@
 		"migrations",
 		"schema"
 	],
-	"publishConfig": {
-		"provenance": true
-	},
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/drizzle-team/drizzle-orm.git"
@@ -39,8 +36,7 @@
 		"build": "rm -rf ./dist && tsx build.ts && cp package.json dist/ && attw --pack dist",
 		"build:dev": "rm -rf ./dist && tsx build.dev.ts && tsc -p tsconfig.cli-types.json && chmod +x ./dist/index.cjs",
 		"pack": "cp package.json README.md dist/ && (cd dist && npm pack --pack-destination ..) && rm -f package.tgz && mv *.tgz package.tgz",
-		"tsc": "tsc -p tsconfig.build.json --noEmit",
-		"publish": "npm publish package.tgz"
+		"tsc": "tsc -p tsconfig.build.json --noEmit"
 	},
 	"dependencies": {
 		"@drizzle-team/brocli": "^0.10.2",
